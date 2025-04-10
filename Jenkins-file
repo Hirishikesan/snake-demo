@@ -1,0 +1,27 @@
+pipeline{
+  agent any 
+  stages {
+        stage ('Cloning Git') {
+			steps {
+				checkout scm
+		    }
+		}
+		stage ('SAST') {
+		    steps{
+			     echo "echo SAST stage"
+			 }
+		}
+        stage ('Build-and-Tag') {
+              steps{
+			    sh "echo Build and Tag"
+			}
+	    }
+	stage ('Pot-to-dockerhub'){
+		steps{
+			sh "echo post to dockerhub repo"
+			}
+		}
+	
+	}
+}
+		
